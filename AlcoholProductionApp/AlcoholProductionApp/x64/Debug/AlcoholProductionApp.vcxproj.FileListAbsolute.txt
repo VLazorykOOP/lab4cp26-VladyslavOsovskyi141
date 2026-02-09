@@ -1,0 +1,3 @@
+C:\Users\l\Documents\чну\VISUAL STUDIO\AlcoholProductionApp\AlcoholProductionApp\x64\Debug\AlcoholProductionApp.vcxproj.AssemblyReference.cache
+C:\Users\l\Documents\чну\VISUAL STUDIO\AlcoholProductionApp\AlcoholProductionApp\x64\Debug\AlcoholProductionApp.MainForm.resources
+C:\Users\l\Documents\чну\VISUAL STUDIO\AlcoholProductionApp\AlcoholProductionApp\x64\Debug\AlcoholProductionApp.vcxproj.GenerateResource.cache
