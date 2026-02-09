@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "MainForm.h"
 using namespace System::Data;
 using namespace System::Data::SqlClient;
@@ -115,8 +115,7 @@ namespace AlcoholProductionApp {
     private:
         void MainForm_Load(System::Object^ sender, System::EventArgs^ e)
         {
-            // нічого не створюємо вручну, колонки підхопляться з SQL
-            btnLoad_Click(sender, e); // одразу завантажуємо дані
+            btnLoad_Click(sender, e);
         }
 
 
@@ -142,8 +141,6 @@ namespace AlcoholProductionApp {
                 MessageBox::Show("Error: " + ex->Message);
             }
         }
-
-        // Додати новий рядок у DataTable, до якого прив'язаний DataGridView
         void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
         {
             if (txtType->Text == "" || txtBrand->Text == "")
@@ -171,11 +168,7 @@ namespace AlcoholProductionApp {
 
                 cmd->ExecuteNonQuery();
                 conn->Close();
-
-                // Оновлюємо DataGridView після INSERT
                 btnLoad_Click(sender, e);
-
-                // Очистка полів
                 txtType->Clear(); txtBrand->Clear(); txtManufacturer->Clear();
                 txtSupplier->Clear(); txtExpirationDate->Clear(); txtPrice->Clear();
             }
@@ -207,12 +200,10 @@ namespace AlcoholProductionApp {
                     cmd->Parameters->AddWithValue("@Brand", brand);
                     cmd->ExecuteNonQuery();
 
-                    break; // тільки перший рядок видаляємо
+                    break;
                 }
 
                 conn->Close();
-
-                // Оновлюємо DataGridView
                 btnLoad_Click(sender, e);
             }
             catch (Exception^ ex)
@@ -253,10 +244,8 @@ namespace AlcoholProductionApp {
                 cmd->ExecuteNonQuery();
                 conn->Close();
 
-                // Оновлюємо DataGridView
                 btnLoad_Click(sender, e);
 
-                // Очистка полів
                 txtType->Clear(); txtBrand->Clear(); txtManufacturer->Clear();
                 txtSupplier->Clear(); txtExpirationDate->Clear(); txtPrice->Clear();
             }
@@ -279,7 +268,6 @@ namespace AlcoholProductionApp {
             }
             else
             {
-                // Перелік колонок для пошуку (ігноруємо ExpirationDate)
                 array<String^>^ columns = { "Type", "Brand", "Manufacturer", "Supplier" };
                 String^ filter = "";
 
@@ -292,8 +280,5 @@ namespace AlcoholProductionApp {
                 dt->DefaultView->RowFilter = filter;
             }
         }
-
-
-
     };
 }
